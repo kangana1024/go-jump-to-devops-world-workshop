@@ -13,13 +13,11 @@ jobs:
           name: "Build docker image and push Docker hub"
           command: |
             if ["${CIRCLE_BRANCH}" == "master"]; then
-              cp Dockerfile.production Dockerfile
               docker build -t kangana512/godemo:latest .
               docker build -t kangana512/godemo:${CIRCLE_SHA1} .
               docker push kangana512/godemo:latest
               docker push kangana512/godemo:${CIRCLE_SHA1}
             elif ["${CIRCLE_BRANCH}" == "staging"]; then
-              cp Dockerfile.staging Dockerfile
               docker build -t kangana512/godemo-staging:latest .
               docker push kangana512/godemo-staging:latest
             else

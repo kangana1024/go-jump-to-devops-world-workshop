@@ -17,15 +17,8 @@ jobs:
       - run:
           name: "Build docker image and push Docker hub"
           command: |
-            if ["${CIRCLE_BRANCH}" == "master"]; then
-              docker build -t kangana512/godemo:latest .
-              docker push kangana512/godemo:latest
-            elif ["${CIRCLE_BRANCH}" == "staging"]; then
-              docker build -t kangana512/godemo-staging:latest .
-              docker push kangana512/godemo-staging:latest
-            else
-              echo "This is ${CIRCLE_BRANCH}"
-            fi
+            docker build -t kangana512/godemo:latest .
+            docker push kangana512/godemo:latest
       - run:
           name: "Call to rancher to deploy"
           command: |

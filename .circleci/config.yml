@@ -19,9 +19,7 @@ jobs:
           command: |
             if ["${CIRCLE_BRANCH}" == "master"]; then
               docker build -t kangana512/godemo:latest .
-              docker build -t kangana512/godemo:${CIRCLE_SHA1} .
               docker push kangana512/godemo:latest
-              docker push kangana512/godemo:${CIRCLE_SHA1}
             elif ["${CIRCLE_BRANCH}" == "staging"]; then
               docker build -t kangana512/godemo-staging:latest .
               docker push kangana512/godemo-staging:latest

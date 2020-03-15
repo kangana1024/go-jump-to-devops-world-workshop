@@ -25,6 +25,5 @@ func main() {
 			"server_id": id,
 		})
 	})
-
 	log.Fatalln(g.Run("0.0.0.0:8080"))
 }
